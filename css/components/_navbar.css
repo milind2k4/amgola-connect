@@ -1,0 +1,211 @@
+/* Navbar Styles */
+.navbar {
+  background: rgba(10, 10, 20, 0.8) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 100; /* Set a high base z-index for the navbar */
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary) !important;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-family: var(--font-bold);
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.dropdown-menu {
+  z-index: 1000 !important; /* Higher than navbar */
+  position: absolute;
+  background: rgba(20, 20, 35, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dropdown-menu .dropdown-item {
+  color: rgba(255, 255, 255, 0.381);
+  position: relative;
+  z-index: 1001 !important; /* Higher than dropdown menu */
+}
+
+.dropdown-menu .dropdown-item:focus,
+.dropdown-menu .dropdown-item:hover {
+  z-index: 1001;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand i {
+  color: var(--neon-cyan);
+  margin-right: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.navbar-brand:hover i {
+  transform: scale(1.1);
+  text-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.25rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary) !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
+}
+
+/* Navbar Buttons */
+.navbar .btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-left: 0.75rem;
+}
+
+.navbar .btn-outline-light {
+  border-color: var(--glass-border);
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.navbar .btn-outline-light:hover {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+}
+
+.navbar .btn-light {
+  background: var(--gradient-primary);
+  border: none;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.navbar .btn-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-secondary);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.navbar .btn-light:hover {
+  box-shadow: 0 0 20px rgba(183, 0, 255, 0.5);
+}
+
+.navbar .btn-light:hover::before {
+  opacity: 1;
+}
+
+/* Mobile menu button */
+.navbar-toggler {
+  border: 1px solid var(--glass-border) !important;
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 243, 255, 0.25);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28224, 224, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.nav-link[target="_blank"]:hover {
+  color: var(--neon-blue) !important;
+}
+
+/* Ensure the dropdown toggle has proper stacking context */
+.nav-item.dropdown {
+  position: relative;
+  z-index: 100;
+}
+
+/* Make sure the dropdown is above the navbar */
+.navbar-collapse {
+  position: relative;
+  z-index: 100;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+  .navbar {
+    margin-bottom: 3rem;
+  }
+  .navbar-collapse {
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--glass-border);
+  }
+
+  .nav-link[target="_blank"] {
+    justify-content: flex-start;
+    padding-left: 1rem !important;
+  }
+
+  .nav-link {
+    padding: 0.75rem 0 !important;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .navbar-nav {
+    margin: 1rem 0;
+  }
+
+  .btn-group {
+    margin-top: 1rem;
+  }
+}

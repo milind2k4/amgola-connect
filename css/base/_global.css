@@ -1,0 +1,96 @@
+/* Base */
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/variables';
+
+/* Components */
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/navbar';
+@import 'components/modals';
+@import 'components/forms';
+
+/* Layout */
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+
+/* Pages */
+@import 'pages/home';
+
+/* Utilities */
+@import 'utilities/spacing';
+@import 'utilities/helpers';
+
+/* Global Styles */
+body {
+    color: var(--text-primary);
+    background-color: var(--bg-darker);
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Glass effect container */
+.glass-container {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+    box-shadow: var(--glass-shadow);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+/* Neon text effect */
+.neon-text {
+    text-shadow: 0 0 5px var(--neon-cyan), 
+                 0 0 10px var(--neon-cyan), 
+                 0 0 20px var(--neon-cyan);
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+    from {
+        text-shadow: 0 0 5px var(--neon-cyan), 
+                     0 0 10px var(--neon-cyan), 
+                     0 0 20px var(--neon-cyan);
+    }
+    to {
+        text-shadow: 0 0 10px var(--neon-cyan), 
+                    0 0 20px var(--neon-cyan), 
+                    0 0 30px var(--neon-cyan), 
+                    0 0 40px var(--neon-pink);
+    }
+}
+
+/* Gradient text */
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback for browsers that don't support text-fill-color */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-purple);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-pink);
+}

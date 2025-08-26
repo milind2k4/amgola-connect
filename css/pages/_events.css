@@ -1,0 +1,367 @@
+:root {
+  --event-social: #0d6efd;
+  --event-community: #198754;
+  --event-sports: #fd7e14;
+  --event-educational: #6f42c1;
+  --event-other: #6c757d;
+  --border-radius-lg: 1rem;
+  --text-muted: #a0a0c0;
+  --text-primary: #e0e0ff;
+  --bg-dark: #3b3b3b;
+  --bg-darker: #050508;
+  --glass-bg: rgba(25, 25, 35, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-blur: blur(12px);
+  --glass-backdrop: blur(12px);
+}
+
+/* Base Styles */
+.events-container {
+  padding: 2rem 0;
+  min-height: calc(100vh - 200px);
+  background: transparent; /* Changed from gradient to transparent */
+  color: var(--text-primary);
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  line-height: 1.6;
+  position: relative; /* Add this to ensure proper stacking context */
+  z-index: 1; /* Ensure content stays above the grid background */
+}
+
+/* Filter Section */
+.filters-container {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--glass-shadow);
+}
+
+.filters-container h5 {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Event Cards Grid */
+#eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.event-col {
+  width: 100%;
+  animation: fadeIn 0.3s ease-out forwards;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.event-col:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.event-col:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.event-col:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.event-col:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.event-col:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.event-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: var(--border-radius-lg) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.event-card .card-body {
+  padding: 1.5rem;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.event-card .card-title {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-family: "Montserrat", sans-serif;
+}
+
+.event-card .card-text {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex: 1 0 auto;
+}
+
+.event-meta {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+}
+
+.event-date,
+.event-location {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.event-date i,
+.event-location i {
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Event Type Badges */
+.badge {
+  padding: 0.4em 0.8em;
+  font-weight: 500;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.badge-social {
+  background-color: var(--event-social);
+  color: white;
+}
+
+.badge-community {
+  background-color: var(--event-community);
+  color: white;
+}
+
+.badge-sports {
+  background-color: var(--event-sports);
+  color: black;
+}
+
+.badge-educational {
+  background-color: var(--event-educational);
+  color: white;
+}
+
+.badge-other {
+  background-color: var(--event-other);
+  color: white;
+}
+
+/* Modal Styles */
+.modal-content.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+.modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
+}
+
+/* Form Inputs */
+.glass-input {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-primary) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Form Labels */
+.form-label {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Adjust form spacing */
+.form-control,
+.form-select,
+.form-control:focus,
+.form-select:focus {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  height: auto;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Make sure the modal is properly sized */
+.modal-dialog {
+  max-width: 800px;
+}
+
+/* Ensure proper contrast for form controls */
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.5rem + 2px);
+}
+
+/* Style the date and time inputs to match the theme */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
+
+/* Adjust the modal close button */
+.btn-close {
+  filter: invert(1) brightness(0.8);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.btn-close:hover {
+  opacity: 1;
+  filter: invert(1) brightness(1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  #eventsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #eventsGrid {
+    grid-template-columns: 1fr;
+  }
+  .filters-container {
+    padding: 1.25rem;
+  }
+
+  .modal-body,
+  .modal-header,
+  .modal-footer {
+    padding: 1.25rem;
+  }
+}
+
+/* Animation for loading cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Past Event Styling */
+.past-event {
+  opacity: 0.7;
+  filter: grayscale(0.3);
+}
+
+.past-event:hover {
+  filter: grayscale(0.1);
+  opacity: 0.9;
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--event-social),
+    var(--event-educational)
+  );
+  border: none;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}

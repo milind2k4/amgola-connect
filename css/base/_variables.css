@@ -1,0 +1,52 @@
+:root {
+  /* Dark theme colors */
+  --bg-dark: #3b3b3b;
+  --bg-darker: #050508;
+  --text-primary: #e0e0ff;
+  --text-secondary: #a0a0c0;
+
+  /* Neon colors */
+  --neon-blue: #00bec8;
+  --neon-red: #ff0000;
+  --neon-pink: #ff00ff;
+  --neon-green: #00ff00;
+  --neon-yellow: #ffff00;
+  --neon-purple: #ff00ff;
+  --neon-cyan: #00ffff;
+  --neon-lavender: #d06ff8;
+
+  /* Glass effect */
+  --glass-bg: rgba(15, 15, 25, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-blur: blur(10px);
+  --glass-backdrop: blur(10px);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--neon-blue),
+    var(--neon-lavender)
+  );
+  --gradient-secondary: linear-gradient(
+    135deg,
+    var(--neon-purple),
+    var(--neon-green)
+  );
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  --font-main: 'Poppins', sans-serif;
+  --font-serif: 'Times New Roman', serif;
+  --font-bold: 'Montserrat', sans-serif;
+
+}

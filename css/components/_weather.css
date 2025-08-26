@@ -1,0 +1,176 @@
+/* Weather Widget */
+.weather-widget {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    left: 65%; 
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 280px; 
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: 1.8rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.weather-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius-lg);
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0, 243, 255, 0.8), rgba(0, 110, 255, 0.8));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.weather-card:hover::before {
+    opacity: 1;
+}
+
+.weather-current {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.weather-temp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem; 
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.8rem;
+}
+
+.weather-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.weather-desc {
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem; 
+    margin-bottom: 1.8rem; 
+}
+
+.weather-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem; 
+    font-size: 1rem; 
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.weather-detail i {
+    color: var(--neon-blue);
+    width: 20px;
+    text-align: center;
+    font-size: 1.2rem; 
+}
+
+
+
+.weather-location {
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+
+/* Move the icon transition to the base state */
+.weather-icon {
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s ease; /* Move this here from the hover state */
+}
+
+.weather-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.weather-card:hover .weather-icon {
+    width: 80px;
+    height: 80px;
+}
+
+/* Add the diagonal lines animation from cards */
+@keyframes diagonalLines {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+
+.weather-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 15px
+    );
+    background-size: 20px 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: var(--border-radius-lg);
+}
+
+.weather-card:hover::after {
+    opacity: 1;
+    animation: diagonalLines 4s linear infinite;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1200px) {
+    .weather-widget {
+        position: static;
+        transform: none;
+        margin: 2rem auto;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .grid {
+        margin: 0 auto;
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+}
