@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             content: 'There will be a temporary water supply interruption on Main Street from 9 AM to 5 PM tomorrow for maintenance work. Please store water accordingly.',
             priority: 'high',
             importance: 'critical',
-            date: '2023-06-15',
+            date: '2025-06-15',
             fullContent: 'There will be a temporary water supply interruption on Main Street from 9 AM to 5 PM tomorrow for maintenance work. The water department will be conducting essential repairs to the main pipeline. We apologize for any inconvenience caused and appreciate your understanding. For emergencies, please contact the water department at 555-1234.'
         },
         {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             content: 'Join us for our monthly community clean-up day this Saturday from 8 AM to 12 PM. Gloves and bags will be provided.',
             priority: 'medium',
             importance: 'important',
-            date: '2023-06-20',
+            date: '2025-06-20',
             fullContent: "Join us for our monthly community clean-up day this Saturday from 8 AM to 12 PM. We'll be meeting at the community center.Gloves, bags, and refreshments will be provided.This is a great opportunity to meet your neighbors and help keep our community clean and beautiful.Children are welcome when accompanied by an adult."
         },
         {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
             content: 'New benches have been installed in the community park. Enjoy the new seating areas!',
             priority: 'low',
             importance: 'normal',
-            date: '2023-06-18',
+            date: '2025-06-18',
             fullContent: 'We are pleased to announce the installation of 10 new benches throughout the community park. These benches were funded by the community development fund and are made from recycled materials. Please help us take care of this new addition to our community space. If you notice any issues with the benches, please report them to the community office.'
         },
         // Add more announcements as needed
